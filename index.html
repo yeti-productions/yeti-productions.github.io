@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Yeti Edits</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet"> <!-- Noto Sans font load -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="title-bar">
+        Yeti Edits
+    </div>
+    <div class="about-section">
+        <p>I have over 5 years of experience in video editing, giving me more than enough time to hone my craft to deliver quality videos. I am an amateur chemist in my free time, leading me to start exciting projects in my own basement lab. When I'm not in the lab or behind the computer editing, doing data analysis, or playing games with friends, you can find me outdoors, mountain biking or playing ultimate frisbee.</p>
+        <p>Below you can find a sample of my work, I hope you enjoy!</p>
+        <button id="refreshVideos" class="refresh-btn">Refresh Videos</button>
+    </div>
+    <div class="break-bar"></div>
+    <div id="videoContainer" class="video-container"></div>
+    <div class="contact-info">
+        <p>Seth Hurley (he/him)</p>
+        <p>Highschool Senior</p>
+        <p>sethhurley007@gmail.com</p>
+    </div>
+
+    <script>
+        const videoUrls = [
+            "https://www.youtube.com/embed/LuQDWEl4JE8",
+            "https://www.youtube.com/embed/92BNUidD2zc",
+            "https://www.youtube.com/embed/IQ0fe1PCxkg",
+            "https://www.youtube.com/embed/AHJyw8VTOlo",
+            "https://www.youtube.com/embed/KNzGEWG3lHI",
+            "https://www.youtube.com/embed/ILlFyWbRDrM",
+            "https://www.youtube.com/embed/38DaSjrbbX0",
+            "https://www.youtube.com/embed/JoKhEwRRhtk",
+            "https://www.youtube.com/embed/tBJ5GqjTqfo",
+            "https://www.youtube.com/embed/fbWObj8qkSw",
+            "https://www.youtube.com/embed/Zhzwi9bOn_k",
+            "https://www.youtube.com/embed/aRzooRWUhzo",
+            "https://www.youtube.com/embed/7hiIVakp--s",
+            "https://www.youtube.com/embed/_SkLy8lis7M",
+            "https://www.youtube.com/embed/zG3JdXb7haU",
+            "https://www.youtube.com/embed/I9tykvOhpXE",
+            "https://www.youtube.com/embed/llac2KgZwhU",
+            "https://www.youtube.com/embed/UbnmqeiR3rg",
+            "https://www.youtube.com/embed/pMB7Nin34Ws",
+            "https://www.youtube.com/embed/AHIZiDCzY5Q",
+            "https://www.youtube.com/embed/sU0TTEw2cDM",
+            "https://www.youtube.com/embed/ATcf7IjdA88",
+            "https://www.youtube.com/embed/zrxgrh1wGwM",
+            "https://www.youtube.com/embed/q1MNrzi3zfM",
+            "https://www.youtube.com/embed/SdMvj-Jcb5s",
+            "https://www.youtube.com/embed/ma7NQ1oALOA",
+            "https://www.youtube.com/embed/-cCWuRreAME",
+            "https://www.youtube.com/embed/ZxcONaxpBOY",
+            "https://www.youtube.com/embed/VabyyhMNujg",
+            "https://www.youtube.com/embed/QA-tlnm4z14"
+        ];
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        function loadVideos() {
+            shuffleArray(videoUrls);
+            const numVideosToShow = (window.innerWidth <= 768) ? 4 : 8;
+            const selectedUrls = videoUrls.slice(0, numVideosToShow);
+
+            selectedUrls.forEach((url, index) => {
+                const videoWrapper = document.createElement('div');
+                videoWrapper.className = 'video-wrapper';
+                videoWrapper.style.opacity = '0';
+                videoWrapper.style.transform = 'translateX(-100px)';
+                videoWrapper.style.animation = 'fadeInSlideIn 1s ease-out forwards';
+                videoWrapper.style.animationDelay = `${.6 + index * 0.2}s`;
+
+                const iframe = document.createElement('iframe');
+                iframe.className = 'video';
+                iframe.src = url;
+                iframe.setAttribute('frameborder', '0');
+                iframe.setAttribute('allowfullscreen', '');
+                iframe.setAttribute('loading', 'lazy');
+                iframe.onload = function() {
+                    this.style.visibility = 'visible';
+                };
+
+                videoWrapper.appendChild(iframe);
+                document.getElementById('videoContainer').appendChild(videoWrapper);
+            });
+        }
+
+        loadVideos();
+
+        document.getElementById('refreshVideos').addEventListener('click', function(event) {
+            event.preventDefault();
+            const videoContainer = document.getElementById('videoContainer');
+            while (videoContainer.firstChild) {
+                videoContainer.firstChild.remove();
+            }
+            loadVideos();
+        });
+    </script>
+</body>
+</html>
