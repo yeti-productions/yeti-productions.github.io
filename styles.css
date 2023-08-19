@@ -1,0 +1,204 @@
+body {
+    opacity: 0;
+    animation: showBody 0.1s forwards;
+    overflow-x: hidden; /* This will prevent horizontal scrolling */
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 450;
+}
+
+@keyframes showBody {
+    to {
+        opacity: 1;
+    }
+}
+
+.title-bar {
+    font-family: "Times New Roman", Times, serif !important;
+    background: linear-gradient(to right, #6129AC, #1E90FF);
+    color: white;
+    padding: 11px;
+    padding-top: 8px;
+    text-align: center;
+    font-size: 3.5em;
+    font-weight: bold;
+    opacity: 0;
+    transform: translateX(-100px);
+    animation: fadeInSlideIn 1s ease-out forwards;
+    border-radius: 10px;
+}
+
+.about-section {
+    padding: 15px;
+    text-align: center;
+    font-size: 1.1em;
+    opacity: 0;
+    transform: translateX(-100px);
+    animation: fadeInSlideIn 1s ease-out forwards;
+    animation-delay: .2s;
+    margin-bottom: 2px;
+    position: relative; /* Needed for the absolute positioning of the button */
+    line-height: 1.5em;
+}
+
+.break-bar {
+    background-color: grey;
+    height: 2px;
+    width: 100%;
+    opacity: 1;
+}
+
+.video-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-top: 15px;
+    margin-bottom: 150px;
+}
+
+.video-wrapper {
+    width: 23%;
+    padding-bottom: 13%;
+    margin: 1%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    transform: translate(0, 0);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    opacity: 0;
+    transform: translateX(-100px);
+    animation: fadeInSlideIn 1s ease-out forwards;
+}
+
+.video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
+
+@keyframes fadeInSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeOutSlideRight {
+    to {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+}
+
+.contact-info {
+    position: fixed;
+    bottom: -150px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: white;
+    padding: 5px;
+    text-align: center;
+    font-size: 1.1em;
+    border-top: 2px solid grey;
+    line-height: .9;
+    z-index: 2;
+    opacity: 0.9;
+    animation: slideUpContact 1s forwards;
+}
+
+@keyframes slideUpContact {
+    to {
+        transform: translateY(-150px);
+    }
+}
+
+.refresh-btn {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    padding: 10px 15px;
+    background-color: #6129AC;  /* Matching the title bar's primary color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em; /* Text size for the button on PC */
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    opacity: 0;
+    animation: fadeIn 1s forwards, slideIn 1s ease-out;
+    animation-delay: .4s;
+}
+
+.refresh-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100px);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 877px) {
+    .about-section {
+        padding-top: 0px;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 45px;
+    }
+
+    .video-wrapper {
+        width: 95%;
+        padding-bottom: 53.5%;
+        margin: 2.5%;
+    }
+
+    .refresh-btn {
+        left: 50%;
+        bottom: 10px;
+        transform: translateX(-50%); /* This centers the button */
+        font-size: 1.05em;
+    }
+
+    .refresh-btn:hover {
+        transform: translate(-50%, -5px); /* This centers the button even on hover */
+        box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .contact-info {
+        font-size: .96em;
+        line-height: .7;
+    }
+
+    .title-bar {
+        padding: 5px;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
