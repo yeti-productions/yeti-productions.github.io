@@ -160,21 +160,18 @@ body {
     .refresh-btn {
         left: 0;
         bottom: 10px;
+        transform: translateX(0);
         animation: fadeInSlideInMobile 1s ease-out forwards;
     }
 
-    .refresh-btn:hover {
-        transform: translateX(-50%);
-        box-shadow: none;
-    }
-
     @keyframes fadeInSlideInMobile {
-        from {
+        0% {
+            opacity: 0;
             transform: translateX(0);
         }
-        to {
-            transform: translateX(-50%);
+        100% {
             opacity: 1;
+            transform: translateX(-50%);
         }
     }
 }
