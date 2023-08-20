@@ -144,17 +144,16 @@ body {
         padding-bottom: 45px;
     }
 
-    .video-wrapper {
-        width: 95%;
-        padding-bottom: 53.5%;
-        margin: 2.5%;
-    }
-
     .refresh-btn {
         left: 50%;
         bottom: 10px;
         transform: translateX(-50%);
         animation: fadeInSlideIn 1s ease-out forwards;
+    }
+
+    .refresh-btn:hover {
+        transform: translateX(-50%);
+        box-shadow: none;
     }
 
     .refresh-btn:hover {
