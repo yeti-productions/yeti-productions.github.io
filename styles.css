@@ -142,6 +142,10 @@ body {
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
 }
 
+.invisible-buffer {
+    height: 0;  /* Initially set to 0 */
+}
+
 /* Mobile adjustments */
 @media (max-width: 877px) {
     .about-section {
@@ -151,6 +155,10 @@ body {
         padding-bottom: 45px;
     }
 
+    .invisible-buffer {
+        height: 100vh;  /* Set to 100vh (100% of the viewport height) on mobile */
+    }
+    
     .video-wrapper {
         width: 95%;
         padding-bottom: 53.5%;
