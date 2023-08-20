@@ -160,14 +160,14 @@ body {
     .refresh-btn {
         left: 0;
         bottom: 10px;
-        transform: translateX(0);
+        transform: translateX(0%);
         animation: fadeInSlideInMobile 1s ease-out forwards;
     }
 
     @keyframes fadeInSlideInMobile {
         0% {
             opacity: 0;
-            transform: translateX(0);
+            transform: translateX(0%);
         }
         100% {
             opacity: 1;
