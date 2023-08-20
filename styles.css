@@ -147,8 +147,7 @@ body {
     .refresh-btn {
         left: 50%;
         bottom: 10px;
-        transform: translateX(-50%);
-        animation: fadeInSlideIn 1s ease-out forwards;
+        animation: fadeInSlideInMobile 1s ease-out forwards;
     }
 
     .refresh-btn:hover {
@@ -156,9 +155,13 @@ body {
         box-shadow: none;
     }
 
-    .refresh-btn:hover {
-        transform: translateX(-50%);
-        box-shadow: none;
+    @keyframes fadeInSlideInMobile {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(-50%);
+        }
     }
 
     .contact-info {
