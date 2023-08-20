@@ -125,36 +125,21 @@ body {
     bottom: 10px;
     left: 10px;
     padding: 10px 15px;
-    background-color: #6129AC;  /* Matching the title bar's primary color */
+    background-color: #6129AC;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1.1em; /* Text size for the button on PC */
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    font-size: 1.1em;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     opacity: 0;
-    animation: fadeIn 1s forwards, slideIn 1s ease-out;
-    animation-delay: .4s;
+    transform: translateX(0);
+    animation: fadeInSlideIn 1s ease-out;
 }
 
 .refresh-btn:hover {
-    transform: translateY(-5px);
+    transform: translate(0, -5px);
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
-}
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateX(-100px);
-    }
-    to {
-        transform: translateX(0);
-    }
 }
 
 /* Mobile adjustments */
@@ -175,22 +160,21 @@ body {
     .refresh-btn {
         left: 50%;
         bottom: 10px;
-        transform: translateX(-50%); /* This centers the button */
-        font-size: 1.05em;
+        animation: fadeInSlideInMobile 1s ease-out forwards;
     }
 
     .refresh-btn:hover {
-        transform: translate(-50%, -5px); /* This centers the button even on hover */
-        box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+        transform: translateX(-50%);
+        box-shadow: none;
     }
 
-    .contact-info {
-        font-size: .96em;
-        line-height: .7;
-    }
-
-    .title-bar {
-        padding: 5px;
+    @keyframes fadeInSlideInMobile {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(-50%);
+        }
     }
 }
 
