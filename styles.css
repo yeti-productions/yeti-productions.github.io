@@ -144,6 +144,12 @@ body {
 
 .invisible-buffer {
     height: 0;  /* Initially set to 0 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;  /* Place it behind all other elements */
+    background: transparent;  /* Make it invisible */
 }
 
 /* Mobile adjustments */
