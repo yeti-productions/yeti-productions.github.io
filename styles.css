@@ -173,9 +173,9 @@ body {
     }
 
     .refresh-btn {
-        left: 50%;
+        left: 0%;
         bottom: 10px;
-        transform: translateX(-100%); /* This centers the button */
+        transform: translateX(-50%); /* This centers the button */
         font-size: 1.05em;
     }
 
