@@ -162,7 +162,7 @@ body {
     }
 
     .invisible-buffer {
-        height: 100vh;  /* Set to 100vh (100% of the viewport height) on mobile */
+        height: 200vh;  /* Set to 100vh (100% of the viewport height) on mobile */
     }
     
     .video-wrapper {
