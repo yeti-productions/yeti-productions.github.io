@@ -160,7 +160,7 @@ body {
     .refresh-btn {
         left: 50%;
         bottom: 10px;
-        transform: translateX(-100%);
+        transform: translateX(0%);
         animation: fadeInSlideInMobile 1s ease-out forwards;
     }
 
