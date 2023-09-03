@@ -5,11 +5,7 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet"> <!-- Noto Sans font load -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <a id="chemistryLink" href="chemistry.html" class="refresh-btn">Chemistry</a>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
     <div class="title-bar">
@@ -79,18 +75,10 @@
                 const videoWrapper = document.createElement('div');
                 videoWrapper.className = 'video-wrapper';
                 videoWrapper.style.opacity = '0';
-                videoWrapper.style.transform = 'translateX(0px)';
-                videoWrapper.style.animation = 'fadeIn 1s forwards, slideIn 1s ease-out';
-                videoWrapper.style.animationDelay = `${.6 + index * 0.25}s`;
+                videoWrapper.style.transform = 'translateX(-100px)';
+                videoWrapper.style.animation = 'fadeInSlideIn 1s ease-out forwards';
+                videoWrapper.style.animationDelay = `${.6 + index * 0.2}s`;
 
-                // Add hover event listener
-                videoWrapper.addEventListener('mouseover', function() {
-                    this.style.transform = 'translateY(-5px)';
-                });
-                videoWrapper.addEventListener('mouseout', function() {
-                    this.style.transform = 'translateY(0)';
-                 });
-                
                 const iframe = document.createElement('iframe');
                 iframe.className = 'video';
                 iframe.src = url;
