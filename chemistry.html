@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Yeti Edits - Chemistry</title>
+    <link rel="stylesheet" type="text/css" href="chemistry.css">
+</head>
+<body>
+    <div class="image-section">
+        <img src="lab_image.jpg" alt="Me in my basement lab">
+    </div>
+    <div class="text-section">
+        <p>Your chemistry-related text here.</p>
+    </div>
+    <div id="videoContainer" class="video-container"></div>
+    <button id="goBack" class="go-back-btn">Main Page</button>
+
+    <script>
+        const videoUrls = [
+            "https://www.youtube.com/embed/LuQDWEl4JE8",
+            "https://www.youtube.com/embed/92BNUidD2zc",
+            "https://www.youtube.com/embed/IQ0fe1PCxkg"
+        ];
+
+        function loadVideos() {
+            const selectedUrls = videoUrls; // Display all videos for the Chemistry section
+
+            selectedUrls.forEach((url, index) => {
+                const videoWrapper = document.createElement('div');
+                videoWrapper.className = 'video-wrapper';
+                videoWrapper.style.opacity = '0';
+                videoWrapper.style.transform = 'translateX(-100px)';
+                videoWrapper.style.animation = 'fadeInSlideIn 1s ease-out forwards';
+                videoWrapper.style.animationDelay = `${0.6 + index * 0.2}s`;
+
+                const iframe = document.createElement('iframe');
+                iframe.className = 'video';
+                iframe.src = url;
+                iframe.setAttribute('frameborder', '0');
+                iframe.setAttribute('allowfullscreen', '');
+                iframe.setAttribute('loading', 'lazy');
+                iframe.onload = function() {
+                    this.style.visibility = 'visible';
+                };
+
+                videoWrapper.appendChild(iframe);
+                document.getElementById('videoContainer').appendChild(videoWrapper);
+            });
+        }
+
+        loadVideos();
+
+        document.getElementById('goBack').addEventListener('click', function(event) {
+            event.preventDefault();
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>
